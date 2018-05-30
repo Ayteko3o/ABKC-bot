@@ -7,15 +7,5 @@ bot.on("ready", async () => {
   bot.user.setGame("!!bilgi", "https://www.twitch.tv/abkc");
 });
 
-client.on('ready', () => {
-    console.log('I am ready!');
-});
-
-client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
-  	}
-});
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);

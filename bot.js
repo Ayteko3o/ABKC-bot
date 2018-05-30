@@ -1,4 +1,3 @@
-const abkcbot = require("./abkcbot.json");
 const Discord = require("discord.js");
 
 const bot = new Discord.Client({disableEvreyone: true});

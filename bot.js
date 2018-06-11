@@ -5,4 +5,4 @@ bot.on('ready', () => {
   bot.user.setGame('Hearthstone')
 })
 
-client.login('token');
+client.login(process.env.BOT_TOKEN);

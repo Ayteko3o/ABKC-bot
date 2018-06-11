@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-  console.user.setGame('Hearthstone')
+  console.user.setGame('hearthstone')
 })
 
 

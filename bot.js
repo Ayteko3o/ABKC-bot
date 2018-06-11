@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 const bot = new Discord.Client({disableEvreyone: true});
 
-bot.on('ready', () => {
+bot.on('ready', async () => {
   bot.user.setGame('deneme')
 })
 

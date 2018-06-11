@@ -3,10 +3,8 @@ const Discord = require('discord.js');
 
 const bot = new Discord.Client({disableEvreyone: true});
 
-bot.on("ready", async () => {
-  console.log("You are connected to " + bot.guilds.size + " servers!");
-  console.log(`${bot.user.username}şuan aktif!`);
-  bot.user.setGame('Hearthstone')
+bot.on('ready', () => {
+  bot.user.setGame('deneme')
 })
 
 bot.on("message", async message => {

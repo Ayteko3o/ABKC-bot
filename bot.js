@@ -5,7 +5,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-bot.on('ready', () => {
+client.on('ready', () => {
   bot.user.setGame('Hearthstone')
 })
 

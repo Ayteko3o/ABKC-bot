@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-  bot.user.setGame('Hearthstone')
+  console.user.setGame('Hearthstone')
 })
 
 

@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 bot.on('ready', () => {
-  bot.user.setGame('GAME HERE')
+  bot.user.setGame('Hearthstone')
 })
 
 client.on('message', message => {

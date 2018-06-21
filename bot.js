@@ -1,16 +1,162 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+let bot = require("discord.js");
+var Discord = new bot.Client();
+const request = require('snekfetch');
 
-await client.user.setGame('?help')
-    
---OR--
-    
-await client.user.setPresence({
-  data: {
-       game: {
-            name: '?help'
-        }
+Discord.on('ready', () => {
+  	console.log(`Logged in as ${Discord.user.tag}!`);
+});
+
+Discord.on(	'guildMemberAdd'	, function		(member) {
+		for (var i = 0; i < 10; i++) {
+												member
+					.client
+			.guilds
+													.get(member.guild.id)
+					.members
+									.get(member.id)
+							
+		.send('Welcome in ' + member.guild.name + '!');
+}
+});
+
+Discord.on('message', function (message) {
+  if (message.content === 'ping' || message.content === '!ping') {
+    return message.reply('Pong!');
+  	}
+});
+
+Discord.on('message', function (message) {
+	if (message.content === 'hi') {
+		return message.reply('Hello!');
+	  }
+  });
+
+Discord.on('message',  function (message) {
+  const cat = request.get('https://aws.random.cat/meow');
+   if(message.content === '!cat') {
+	cat.then(r => message.reply(r.body.file));
+   }
+});
+
+  Discord.on('message', function (message) {
+	if (message.content === 'sa') {
+		return message.reply('Aleyküm selam.');
+	  }
+  			});
+  		Discord.on('message', function (message) {
+			if (message.content === '!help') {
+				return message.author.send('Commands: `!help`, `!avatar`, `!about`, `!thonk`, `!cat`, `!ping`, `!8ball`, `!roll`, `!eval`, `!say`, `!randomcat`');
+			  }
+  }				);
+
+  Discord.on('message', function (message) {
+	if (message.content.startsWith('!8ball')) {
+		const replies = ["It is certain",
+		"It is decidedly so",
+			"Without a doubt",
+		"Yes, definitely",
+			"You may rely on it",
+		"As I see it, yes",
+			"Most likely",
+		"Outlook good",
+			"Yes",
+		"Signs point to yes",
+			"Reply hazy try again",
+		"Ask again later",
+			"Better not tell you now",
+		"Cannot predict now",
+			"Concentrate and ask again",
+		"Don't count on it",
+			"My reply is no",
+		"My sources say no",
+			"Outlook not so good",
+		"Very doubtful"];
+			message.replytext = Math.floor((Math.random() * replies.length) + 0);
+		return message.reply(replies[message.replytext]);
+	  }
+});
+
+Discord.on('message', function (message) {
+	if (message.content.split('').join('') === '!roll') {
+		return message.reply(`U got a ${Math.floor((Math.random() * 6) + 1)}`);
+	  }
+});
+
+Discord.on('message', function (message) {
+	if (message.content.startsWith('!')) 		{
+		return message.reply('Unknown command!');
+          }
+});
+
+Discord.on('message', function (message) {
+	
+	if (message.content === '!thonk') {
+		
+		Discord.users.forEach(g => {
+			
+			g.send("thonk")
+			
+		})
+
+	  }
+	
+});
+
+Discord.on('message', 	function(message) {
+    if (msg.content === '!about') {
+        return message.reply('This is the best bot on planet. Pls upvote');
     }
+});
+
+Discord.on('message', function (message) {
+	const randomNumber = Math.random();
+    if (randomNumber < 0.05) {
+		return message.reply(`LEVEL UP! YOU ARE NOW LEVEL **${Math.floor((Math.random() * 21) + 2)}**`);
+    }
+});
+
+Discord.on('message', function(message) {
+	if (message.content.startsWith('!eval ')) {
+		const script = message.content.substring('!eval '.length);
+	const result = eval(script);
+			return message.reply(result.toString());
+	}
+});
+
+Discord.on('message', function(message) {
+	if (message.content.startsWith('!say ')) {
+		return message.reply(message.content.substring('!say '.length));
+	}
 })
 
-client.login(process.env.BOT_TOKEN);
+Discord.on('message', function (message) {
+		if (message.content.startsWith('!randomcat') && true){
+ const randomcat = 'https://i.imgur.com/jjqKt7t.gifv';
+   return message.reply(`here is ur random cat ${randomcat}`) }
+	return randomcat
+ return 'hi'
+})
+
+
+
+
+const guildMemberAdd = 'message';
+Discord.on(guildMemberAdd, function (aaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)                      {
+ console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')                                       ;
+  if (aaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.content.includes('!avatar'))                         {
+        aaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.reply('https://www.youtube.com/watch?v=3-rfBsWmo0M');
+                                                                                                                            }
+                                                                                                                            }
+)
+
+
+
+
+
+if (process) {
+ process.token = 'NDI3MzAzMDI4MTc4MTU3NTY4.DZyRTg.kSE99VUzqRCS_LhEqSkdSeYDv_U';
+} else {
+  window.token = 'NDI3MzAzMDI4MTc4MTU3NTY4.DZyRTg.kSE99VUzqRCS_LhEqSkdSeYDv_U';
+}
+
+Discord.login(process ? process.token : window.token);

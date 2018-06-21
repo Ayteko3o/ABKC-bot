@@ -153,10 +153,4 @@ Discord.on(guildMemberAdd, function (aaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 
-if (process) {
- process.token = 'NDI3MzAzMDI4MTc4MTU3NTY4.DZyRTg.kSE99VUzqRCS_LhEqSkdSeYDv_U';
-} else {
-  window.token = 'NDI3MzAzMDI4MTc4MTU3NTY4.DZyRTg.kSE99VUzqRCS_LhEqSkdSeYDv_U';
-}
-
-Discord.login(process ? process.token : window.token);
+client.login(process.env.BOT_TOKEN);

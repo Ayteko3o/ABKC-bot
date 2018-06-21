@@ -1,5 +1,5 @@
-const abkcbot = require("./package.json");
-const Discord = require("discord.js");
+const abkcbot = require("package.json");
+const Discord = require("index.js");
 
 const bot = new Discord.Client({disableEvreyone: true});
 
@@ -9,32 +9,6 @@ bot.on("ready", async () => {
   bot.user.setGame("!!bilgi", "https://www.twitch.tv/abkc");
 });
 
-bot.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
 
-  let prefix = abkcbot.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  if(cmd === `${prefix}bilgi`){
-
-    let sicon = message.guild.iconURL;
-    let serverembed = new Discord.RichEmbed()
-    .setDescription("ABKC sunucu hakkında")
-    .setColor("#c900e8")
-    .setThumbnail(sicon)
-    .addField("Sunucu Adı", message.guild.name)
-    .addField("Oluşturulma", message.guild.createdAt)
-    .addField("Katılma", message.member.joinedAt)
-    .addField("Üye Sayısı", message.guild.memberCount);
-
-    message.channel.send(serverembed);
-
-
-  }
-
-});
 
 client.login(process.env.BOT_TOKEN);

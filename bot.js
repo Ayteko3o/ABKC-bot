@@ -5,6 +5,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-bot.user.setGame(hearthstone)
+
 
 client.login(process.env.BOT_TOKEN);
